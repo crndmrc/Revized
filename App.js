@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component} from 'react';
 import {SortableComponent} from './component/ToDoList/index';
-import "./index.css"
+import "./index.css";
+import {BeatLoader} from 'react-spinners';
+import {Parallax} from 'react-parallax';
 export default class ApppRevized extends Component {
     state={
     element:{
@@ -35,35 +37,36 @@ onDelete=(id)=>{
     render() {
         const {firstname,lastname,note}=this.state.element;
         return (
-            <div className="wrapper">
-                  <h4 className="baslik">Todo App</h4>
-                    <form className="form">
+                 <div className="wrapper" style={{height:500}}>
+                <h4 className="baslik">Todo App</h4>
+                 <hr/>
+                <div className="form">
                         <div className="form-group">
-                        <div className="col-25">
-                            <label for="fname">First Name</label>
-                        </div>
-                        <div className="col-75">
-                            <input onChange={e=>this.changeHandle("firstname",e.target.value)} value={firstname} type="text" placeholder="Adı"/>
-                        </div>
-                        <div className="col-25">
-                            <label for="fname">Last Name</label>
-                        </div>
-                        <div className="col-75">
-                            <input  onChange={e=>this.changeHandle("lastname",e.target.value)} value={lastname} type="text" placeholder="Soyadı"/>
-                        </div>
-                        <div className="col-25">
-                            <label for="fname">Note</label>
-                        </div>
-                        <div className="col-75">
-                            <textarea placeholder="Not"  onChange={e=>this.changeHandle("note",e.target.value)} value={note} name="" id="" cols="36" rows="3.5"></textarea>
-                        </div>
-                        </div>
-                        <button className="button button1" onClick={this.onAdd.bind(this)} >Kaydet</button>
-                    </form>
-                    <hr/>
-                    <div className="col-12">
-                         <SortableComponent onDelete={(e)=>this.onDelete(e)} value={this.state.todolist} />
-                    </div>
+                          <div className="col-25">
+                              <label>First Name</label>
+                          </div>
+                          <div className="col-75">
+                              <input onChange={e=>this.changeHandle("firstname",e.target.value)} value={firstname} type="text" placeholder="Adı"/>
+                          </div>
+                          <div className="col-25">
+                              <label >Last Name</label>
+                          </div>
+                          <div className="col-75">
+                              <input  onChange={e=>this.changeHandle("lastname",e.target.value)} value={lastname} type="text" placeholder="Soyadı"/>
+                          </div>
+                          <div className="col-25">
+                              <label >Note</label>
+                          </div>
+                          <div className="col-75">
+                              <textarea placeholder="Not" onChange={e=>this.changeHandle("note",e.target.value)} value={note} name="" id="textarea" ></textarea>
+                          </div>
+                          </div>
+                          <button className="button button1" onClick={this.onAdd.bind(this)} >Kaydet</button>
+                          </div>
+                <hr/>
+                <div className="col-12" >
+                       <SortableComponent onDelete={(e)=>this.onDelete(e)} value={this.state.todolist} />
+                      </div>
                 </div>
         )
     }
