@@ -1,9 +1,13 @@
 import React, { Component} from 'react';
 import {SortableComponent} from './component/ToDoList/index';
 import "./index.css";
-import {BeatLoader} from 'react-spinners';
-import {Parallax} from 'react-parallax';
+import $ from "jquery";
+import {findDOMNode} from 'react-dom';
 export default class ApppRevized extends Component {
+    handleToggle =()=>{
+        const el =findDOMNode(this.refs.toggle);
+        $(el).slideToggle();
+    }
     state={
     element:{
         firstname:"",
@@ -37,10 +41,11 @@ onDelete=(id)=>{
     render() {
         const {firstname,lastname,note}=this.state.element;
         return (
-                 <div className="wrapper" style={{height:500}}>
+            
+                <div className="wrapper"style={{height:500}}>
                 <h4 className="baslik">Todo App</h4>
-                 <hr/>
-                <div className="form">
+                 <hr/>                
+                <div className="form" ref="toggle" >
                         <div className="form-group">
                           <div className="col-25">
                               <label>First Name</label>
@@ -61,10 +66,12 @@ onDelete=(id)=>{
                               <textarea placeholder="Not" onChange={e=>this.changeHandle("note",e.target.value)} value={note} name="" id="textarea" ></textarea>
                           </div>
                           </div>
-                          <button className="button button1" onClick={this.onAdd.bind(this)} >Kaydet</button>
+                          <button className="button button1" onClick={this.onAdd.bind(this)}>Kaydet</button>
                           </div>
+                <button onClick={this.handleToggle} className="button3"></button>
                 <hr/>
-                <div className="col-12" >
+                <div className="parallax-window" data-parallax="scroll" data-z-index="1" data-image-src="images/1.webp"></div>
+                <div className="col-12">
                        <SortableComponent onDelete={(e)=>this.onDelete(e)} value={this.state.todolist} />
                       </div>
                 </div>

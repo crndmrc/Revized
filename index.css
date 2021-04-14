@@ -2,6 +2,7 @@ body{
     margin:0;
     padding: 0;
     background: url('./images/1.webp');
+    background-attachment: fixed;
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color:#b2ba9e;
@@ -36,11 +37,11 @@ body{
   }
   60.1%,100%{
     color:#b2ba9e;
-    box-shadow: 0 0 10px #03bcf4,
-    0 0 20px #03bcf4,
-    0 0 40px #03bcf4,
-    0 0 80px #03bcf4,
-    0 0 160px #03bcf4,
+    box-shadow: 0 0 10px wheat,
+    0 0 20px wheat,
+    0 0 40px wheat,
+    0 0 80px wheat,
+    0 0 160px wheat,
   }
 }
 .baslik:hover{
@@ -58,6 +59,7 @@ body{
     padding: 0 20px;
   }
   .form{
+    z-index: 2;
     max-width: 550px;
     margin: 0 auto;
     box-shadow: 0 0 10px;
@@ -177,6 +179,9 @@ body{
     font-size: 1em;
     font-style: italic;
   }
+  .button1:hover .button3{
+    visibility: visible;
+  }
   .button2{
     visibility: hidden;
     background-color: transparent ;
@@ -197,4 +202,25 @@ body{
     color:  #EAEDED;
     font-size: 1em;
     font-style: italic;
+}
+.button3{
+  content: '^^';
+  background-color: transparent ;
+  color: #b2ba9e;
+  padding: 2px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 8px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button3:hover {
+  content: '¨¨';
+  border: 2px solid transparent;
+  background-color: transparent;
+  color:  #b2ba9e;
+  font-size: 1em;
+  font-style: italic;
 }
